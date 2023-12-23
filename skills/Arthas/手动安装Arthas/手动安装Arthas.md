@@ -2,4 +2,4 @@
 
 cd /home/work/project && curl -O https://arthas.aliyun.com/arthas-boot.jar /home/work/jdk1.8/bin/java -jar arthas-boot.jar
 
-![img](https://zalav54l6d.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDk4NmU5YTc5MzJhYjEwYTNmMzM2YjIxMTU4MjY4MGVfdEEyMTlCM2E0ZEtnWXRGTEd1YlQ5dWNDQWZFOFpEMVRfVG9rZW46Wlptb2J2dHBGbzFRdFF4ZGRBMWNjMHJFbkFjXzE3MDMwODQ2NjQ6MTcwMzA4ODI2NF9WNA)
+![img](https://github.com/rabbeargiggly/tech-notes/blob/main/skills/Arthas/%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85Arthas/resources/image.png)
