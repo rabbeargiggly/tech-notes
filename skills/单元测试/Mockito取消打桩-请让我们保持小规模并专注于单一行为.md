@@ -1,0 +1,91 @@
+# Mockito取消打桩
+
+# 请让我们保持小规模并专注于单一行为
+
+
+
+# 实战背景
+
+在一次正常的开发中，写单测时，正常 mock 一个引用的 service
+
+
+
+```java
+@Mock
+private IDKUserClearService idkUserClearService;
+```
+
+
+
+模拟异常
+
+这里打桩的结果是 调用 function1 函数并传入 param1 形参时，抛出 RunTime 异常
+
+
+
+```java
+when(idkUserClearService.function1(param1)).thenThrow(new RuntimeException("mock exception"));
+```
+
+
+
+ 
+
+由于引用的函数需要不同的返回，所以进行了打桩，来覆盖不同的返回值的逻辑判断
+
+所以后续我想取消这个打桩的抛异常，并打桩一个正常返回的结果
+
+
+
+
+
+# 取消打桩
+
+其实点进去 Mockito 类里面就可以看到有很多函数，其中有一个 reset 函数看起来很像
+
+
+
+```java
+public static <T> void reset(T... mocks) {
+    MOCKITO_CORE.reset(mocks);
+}
+```
+
+
+
+如果想取消一个 mock 对象的所有打桩，就用 reset 函数
+
+
+
+```java
+// 取消打桩
+reset(idkUserClearService);
+// 重新打桩
+when(idkUserClearService.function1(param1)).thenReturn("success");
+```
+
+
+
+
+
+## 注意
+
+使用 reset 函数可能意味着，单测代码写的不太合格。。。。。
+
+这种场景通常再重新写个新的测试方法就可以了
+
+单测的测试方法要简单、小型、集中，而不是冗长、过度指定的测试
+
+请让我们保持小规模并专注于单一行为
+
+ 
+
+```java
+List mock = mock(List.class);
+when(mock.size()).thenReturn(10);
+mock.add(1);
+ 
+reset(mock);
+//at this point the mock forgot any interactions and stubbing
+```
+
