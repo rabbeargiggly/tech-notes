@@ -2,6 +2,18 @@
 
 
 
+首先SETNX命令的基本用法
+
+```bash
+redis> SETNX KEY_NAME VALUE
+```
+
+返回值
+
+设置成功，返回 1 。 设置失败，返回 0 。
+
+
+
 ```java
 private static String LOCK_PREFIX = "prefix";
 
